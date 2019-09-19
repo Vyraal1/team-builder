@@ -1,10 +1,18 @@
 import React from "react";
 import MemberCard from "./MemberCard";
 
-function TeamList() {
+//props from index.js
+function TeamList(props) {
   return (
-    <div>
-      <MemberCard /> <MemberCard /> <MemberCard />
+    <div className="TeamList">
+      {props.team.map(teammate => (
+        <MemberCard
+          key={teammate.name}
+          name={teammate.name}
+          email={teammate.email}
+          role={teammate.role}
+        />
+      ))}
     </div>
   );
 }
